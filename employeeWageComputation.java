@@ -1,3 +1,5 @@
+import java.util.*;
+
 interface EmpWageBuilder
 {
     public void wageComputation( Companyempwage obj );
@@ -17,10 +19,10 @@ public class employeeWageComputation implements EmpWageBuilder
             switch(employee)
             {
                 case is_Part_Time:	empHrs = 4;
-                    break;
+					break;
                 case is_Full_Time:	empHrs = 8;
-                    break;
-                default:			empHrs = 0;
+					break;
+                default:		empHrs = 0;
             }
             totalWorkDay++;
             totalEmpHrs += empHrs;
@@ -34,13 +36,13 @@ public class employeeWageComputation implements EmpWageBuilder
         System.out.println(">---< EMPLOYEE WAGE COMPUTATION >---<");
         System.out.println("-------------------------------------");
         employeeWageComputation emp = new employeeWageComputation();
-        Companyempwage[] company = new Companyempwage[10];
-        company[0] = new Companyempwage("HP", 20, 20, 100);
-        emp.wageComputation(company[0]);
-        company[1] = new Companyempwage("DELL", 30, 25, 120);
-        emp.wageComputation(company[1]);
-        company[2] = new Companyempwage("ACER", 40, 20, 150);
-        emp.wageComputation(company[2]);
+        ArrayList<Companyempwage> company = new ArrayList<Companyempwage>();
+        company.add( new Companyempwage( "HP", 20, 20, 100 ));
+        emp.wageComputation(company.get(0));
+        company.add( new Companyempwage( "DELL", 30, 25, 120 ));
+        emp.wageComputation(company.get(1));
+        company.add( new Companyempwage( "ACER", 40, 20, 150 ));
+        emp.wageComputation(company.get(2));
     }
 }
 
@@ -89,4 +91,3 @@ class Companyempwage
         return totalEmpWage;
     }
 }
-
