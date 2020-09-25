@@ -1,8 +1,13 @@
-public class employeeWageComputation
+interface EmpWageBuilder
+{
+    public void wageComputation( Companyempwage obj );
+}
+
+public class employeeWageComputation implements EmpWageBuilder
 {
     static final int is_Part_Time=2, is_Full_Time=1;
 
-    public static void wageComputation(Companyempwage companyEmployee)
+    public void wageComputation(Companyempwage companyEmployee)
     {
         int empHrs=0, totalEmpHrs = 0, totalWorkDay=0, totalEmpWage=0;
 
@@ -12,9 +17,9 @@ public class employeeWageComputation
             switch(employee)
             {
                 case is_Part_Time:	empHrs = 4;
-                                    break;
+                    break;
                 case is_Full_Time:	empHrs = 8;
-                                    break;
+                    break;
                 default:			empHrs = 0;
             }
             totalWorkDay++;
