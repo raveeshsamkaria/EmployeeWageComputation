@@ -1,10 +1,11 @@
 public class employeeWageComputation
 {
-    static final int empRatePerHr=20, is_Part_Time=2, is_Full_Time=1, noOfWorkDay=20, maxHrsInMonth=100;
-    static int empHrs=0, totalEmpHrs = 0, totalWorkDay=0, totalEmpWage=0;
-
-    public static void wageComputation()
+    public static void wageComputation(String companyName, int empRatePerHr, int noOfWorkDay, int maxHrsInMonth)
     {
+        final int is_Part_Time=2, is_Full_Time=1;
+        int empHrs=0, totalEmpHrs = 0, totalWorkDay=0, totalEmpWage=0;
+
+        System.out.println(">---< Welcome To " + companyName+ " >---<");
         while( totalWorkDay < noOfWorkDay && totalEmpHrs <= maxHrsInMonth )
         {
             int employee=(int)(Math.random()*10)%3;
@@ -28,7 +29,13 @@ public class employeeWageComputation
     {
         System.out.println(">---< EMPLOYEE WAGE COMPUTATION >---<");
         System.out.println("-------------------------------------");
-        wageComputation();
+        employeeWageComputation emp = new employeeWageComputation();
+        emp.wageComputation("HP", 20, 20, 100);
+        System.out.println("-------------------------------------");
+        emp.wageComputation("DELL", 30, 25, 120);
+        System.out.println("-------------------------------------");
+        emp.wageComputation("ACER", 40, 20, 150);
+        System.out.println("-------------------------------------");
     }
 }
 
