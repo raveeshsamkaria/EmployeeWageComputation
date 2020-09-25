@@ -1,22 +1,19 @@
 public class employeeWageComputation
 {
-    public static void main(String[] args)
+    static final int empRatePerHr=20, is_Part_Time=2, is_Full_Time=1, noOfWorkDay=20, maxHrsInMonth=100;
+    static int empHrs=0, totalEmpHrs = 0, totalWorkDay=0, totalEmpWage=0;
+
+    public static void wageComputation()
     {
-        System.out.println(">---< EMPLOYEE WAGE COMPUTATION >---<");
-        System.out.println("-------------------------------------");
-
-        final int empRatePerHr=20, is_Part_Time=2, is_Full_Time=1, noOfWorkDay=20, maxHrsInMonth=100;
-        int empHrs=0, totalEmpHrs = 0, totalWorkDay=0, totalEmpWage=0;
-
         while( totalWorkDay < noOfWorkDay && totalEmpHrs <= maxHrsInMonth )
         {
             int employee=(int)(Math.random()*10)%3;
             switch(employee)
             {
                 case is_Part_Time:	empHrs = 4;
-                    break;
+                                    break;
                 case is_Full_Time:	empHrs = 8;
-                    break;
+                                    break;
                 default:			empHrs = 0;
             }
             totalWorkDay++;
@@ -25,6 +22,13 @@ public class employeeWageComputation
         }
         totalEmpWage = totalEmpHrs * empRatePerHr;
         System.out.println("Total Wages for Month : "+ totalEmpWage);
+    }
+
+    public static void main(String[] args)
+    {
+        System.out.println(">---< EMPLOYEE WAGE COMPUTATION >---<");
+        System.out.println("-------------------------------------");
+        wageComputation();
     }
 }
 
