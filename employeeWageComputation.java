@@ -1,6 +1,6 @@
 public class employeeWageComputation
 {
-    public static void wageComputation(String companyName, int empRatePerHr, int noOfWorkDay, int maxHrsInMonth)
+    public static int wageComputation(String companyName, int empRatePerHr, int noOfWorkDay, int maxHrsInMonth)
     {
         final int is_Part_Time=2, is_Full_Time=1;
         int empHrs=0, totalEmpHrs = 0, totalWorkDay=0, totalEmpWage=0;
@@ -19,10 +19,9 @@ public class employeeWageComputation
             }
             totalWorkDay++;
             totalEmpHrs += empHrs;
-            System.out.println("Day : " + totalWorkDay + ", Work Hours:" + totalEmpHrs);
         }
         totalEmpWage = totalEmpHrs * empRatePerHr;
-        System.out.println("Total Wages for Month : "+ totalEmpWage);
+        return totalEmpWage;
     }
 
     public static void main(String[] args)
@@ -30,12 +29,13 @@ public class employeeWageComputation
         System.out.println(">---< EMPLOYEE WAGE COMPUTATION >---<");
         System.out.println("-------------------------------------");
         employeeWageComputation emp = new employeeWageComputation();
-        emp.wageComputation("HP", 20, 20, 100);
-        System.out.println("-------------------------------------");
-        emp.wageComputation("DELL", 30, 25, 120);
-        System.out.println("-------------------------------------");
-        emp.wageComputation("ACER", 40, 20, 150);
-        System.out.println("-------------------------------------");
+        int []wages=new int[3];
+        wages[0]=emp.wageComputation("HP", 20, 20, 100);
+        System.out.println("Employee Monthly Wage Is "+wages[0] + " In HP");
+        wages[1]=emp.wageComputation("DELL", 30, 25, 120);
+        System.out.println("Employee Monthly Wage Is "+wages[1] + " In DELL");
+        wages[2]=emp.wageComputation("ACER", 40, 20, 150);
+        System.out.println("Employee Monthly Wage Is "+wages[2] + " In ACER");
     }
 }
 
